@@ -13,7 +13,7 @@ import axios from "axios";
 import backgroundImage from '../assets/foto.jpg';
 
 
-const Login: React.FC = () => {
+const Login_Dentista: React.FC = () => {
   const Nnavigate = useNavigate();
 
 
@@ -52,7 +52,7 @@ const Login: React.FC = () => {
     <Container maxWidth="sm">
       <Box sx={{ mt: 8, textAlign: "center" }}>
         <Typography variant="h4" gutterBottom>
-          Iniciar Sesión
+          Iniciar Sesión Dentista
         </Typography>
 
         <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit}>
@@ -115,17 +115,17 @@ const Login: React.FC = () => {
           <Link
             component="button"
             variant="body2"
-            onClick={() => Nnavigate("/register")}
+            onClick={() => Nnavigate("/Register_Dentista")}
           >
             Regístrate aquí
           </Link>
         </Typography>
-         <Typography variant="body2" sx={{ mt: 2 }}>
-          ¿Eres dentista?{" "}
+        <Typography variant="body2" sx={{ mt: 2 }}>
+          ¿Eres Paciente?{" "}
           <Link
             component="button"
             variant="body2"
-            onClick={() => Nnavigate("/Login_Dentista")}
+            onClick={() => Nnavigate("/Login")}
           >
             Regístrate aquí
           </Link>
@@ -135,4 +135,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default Login_Dentista;

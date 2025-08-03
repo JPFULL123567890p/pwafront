@@ -32,7 +32,7 @@ const Register: React.FC = () => {
     <Container maxWidth="sm">
       <Box sx={{ mt: 8, textAlign: "center" }}>
         <Typography variant="h4" gutterBottom>
-          Registro 
+          Registro Dentista
         </Typography>
 
         <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit}>
@@ -114,21 +114,22 @@ const Register: React.FC = () => {
           <Link
             component="button"
             variant="body2"
-            onClick={() => navigate("/Login")}
+            onClick={() => navigate("/Login_Dentista")}
           >
             Inicia sesión aquí
           </Link>
         </Typography>
-        <Typography variant="body2" sx={{ mt: 3 }}>
-          ¿Eres dentista?{" "}
-          <Link
-            component="button"
-            variant="body2"
-            onClick={() => navigate("/Register_Dentista")}
-          >
-            Inicia sesión aquí
-          </Link>
-        </Typography>
+
+         <Typography variant="body2" sx={{ mt: 3 }}>
+                  ¿Eres Paciente? Inicia sesion aquí{" "}
+                  <Link
+                    component="button"
+                    variant="body2"
+                    onClick={() => navigate("/Register")}
+                  >
+                    Inicia sesión aquí
+                  </Link>
+                </Typography>
       </Box>
     </Container>
   );

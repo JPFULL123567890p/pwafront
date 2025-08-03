@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
     AppBar, Toolbar, Typography, Button, Container, Box, TextField, List,
     ListItem, ListItemText, ListItemSecondaryAction, IconButton, Dialog,
-    DialogTitle, DialogContent, DialogActions, MenuItem, Select
+    DialogTitle, DialogContent, DialogActions, MenuItem, Select, Stack
 } from '@mui/material';
 import { Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import axios from 'axios';
@@ -11,7 +11,7 @@ import { checkConnection, listenForReconnection } from '../utils/connectionStatu
 import { useNavigate } from 'react-router-dom';
 
 // Importa tu imagen de fondo
-import backgroundImage from '../assets/dental-background.jpg'; // Ajusta según tu estructura
+import backgroundImage from '../assets/dental-background.jpg'; // Ajusta la ruta según tu estructura
 
 interface Task {
     id: number;
@@ -38,8 +38,8 @@ const Dashboard: React.FC = () => {
         navigate('/login');
     };
 
-      const handleNavigateToCitas = () => {
-        navigate('/dashboard2');
+    const handleNavigateToCitas = () => {
+        navigate('/dashboard');
     };
 
     const fetchTasks = async () => {
@@ -164,50 +164,26 @@ const Dashboard: React.FC = () => {
             />
 
             {/* NavBar */}
-            <AppBar position="fixed"   sx={{ backgroundColor: '#007b8f' }}>
+            <AppBar position="fixed"  sx={{ backgroundColor: '#007b8f' }}>
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
                         Dental-Art | Dashboard
                     </Typography>
-                    <Button color="inherit" onClick={handleNavigateToCitas}>Mis Citas</Button>
-                    <Button color="inherit" onClick={handleNavigateToCitas}>Principal</Button>
-                    
-                    <Button color="inherit" onClick={handleLogout}>Cerrar Sesión</Button>
-              
-
+                    <Stack direction="row" spacing={2}>
+                        <Button color="inherit" onClick={handleNavigateToCitas}>Mis Citas</Button>
+                        <Button color="inherit" onClick={handleNavigateToCitas}>Principal</Button>
+                        <Button color="inherit" onClick={handleLogout}>Cerrar Sesión</Button>
+                        
+                    </Stack>
                 </Toolbar>
             </AppBar>
 
             {/* Contenido */}
             <Container maxWidth="md" sx={{ mt: 12 }}>
                 <Box sx={{ textAlign: 'center', backdropFilter: 'blur(2px)', p: 2, borderRadius: 2, backgroundColor: 'rgba(255,255,255,0.8)' }}>
-                    <Typography variant="h4">Mis citas</Typography>
+                    <Typography variant="h4">Mis Tareas</Typography>
 
-                    <TextField
-                        fullWidth
-                        label="Nueva Tarea"
-                        variant="outlined"
-                        value={taskTitle}
-                        onChange={(e) => setTaskTitle(e.target.value)}
-                        sx={{ mt: 2 }}
-                    />
-                    <TextField
-                        fullWidth
-                        label="Descripción"
-                        variant="outlined"
-                        value={taskDescription}
-                        onChange={(e) => setTaskDescription(e.target.value)}
-                        sx={{ mt: 2 }}
-                    />
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        sx={{ backgroundColor: '#007b8f' }}
-                        onClick={handleAddTask}
-                        fullWidth
-                    >
-                        Agregar Tarea
-                    </Button>
+                 
 
                     <List sx={{ mt: 4 }}>
                         {tasks.map(task => (
